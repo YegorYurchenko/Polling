@@ -1,4 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Polls
 
 def current(request):
-    return render(request, 'poll/current.html')
+    objects = Polls.objects.order_by('id')
+
+    data = {
+        'type': 'last',
+        'polls': objects[len(objects) - 1:]
+    }
+    return render(request, 'poll/current.html', data)
