@@ -91,3 +91,114 @@ body {
   display: inline-block;
   font-size: 45px;
 }
+.poll__main-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 70px;
+  width: 100%;
+}
+.poll__main-list-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 60px;
+  width: 100%;
+}
+.poll__main-list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+.poll__main-list-inner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.poll__main-item {
+  width: calc(50% - 10px);
+  vertical-align: bottom;
+  list-style: none;
+  font-size: 25px;
+}
+.poll__main-item:nth-child(odd) {
+  padding: 0 10px 0 0;
+}
+.poll__main-item:last-child {
+  padding: 0;
+}
+.poll__main-item-radio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 8px 0;
+  padding: 5px 15px;
+  height: calc(100% - 16px - 10px);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.poll__main-item-radio:hover {
+  background-color: rgba(199, 199, 199, 0.2);
+}
+.poll__main-item-radio_not-active {
+  transition: none;
+  background-color: inherit;
+  cursor: default;
+}
+.poll__main-item-radio_not-active:hover {
+  background-color: inherit;
+}
+.poll__main-item-text {
+  white-space: normal;
+  text-align: center;
+}
+.poll__main-item-checkbox {
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px #9F9F9F;
+  box-shadow: inset 0 0 0 1.5px #9F9F9F;
+  appearance: none;
+  transition: box-shadow 150ms cubic-bezier(.95,.15,.5,1.25);
+  pointer-events: none;
+}
+.poll__main-item-checkbox:focus {
+  outline: none;
+}
+.poll__main-item-checkbox:checked {
+  box-shadow: inset 0 0 0 6px #6743ee;
+}
+.poll__main-poll-date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.poll__main-btn-wrapper {
+  margin: 0 0 10px;
+}
+.poll__main-btn-submit {
+  margin: 15px 0 0;
+  padding: 10px 15px;
+  background-color: #e2a815;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+.poll__main-btn-submit:hover {
+  background-color: #be8e14;
+}

@@ -1,5 +1,6 @@
 {% extends 'poll/layout.html' %}
 {% load static %}
+{% load poll_split %}
 
 {% block title %}
     Текущее голосование
@@ -7,6 +8,32 @@
 
 {% block content %}
     <div class='poll__main-inner'>
-        <h1 class='poll__main-title'>Название голосования</h1>
+        {% if polls %}
+            {% for poll in polls %}
+                <h1 class='poll__main-title'>{{ poll.title }}</h1>
+                <form class='poll__main-form' method="post">
+                    {% csrf_token %}
+                    <div class="poll__main-list-wrapper">
+                        <ul class='poll__main-list'>
+                            <div class="poll__main-list-inner flex-col">
+                                {% for el in poll.variants|split %}
+                                <li class='poll__main-item'>
+                                    <label class='poll__main-item-radio'>
+                                        <span class='poll__main-item-text'>{{ el }}</span>
+                                        <input class='poll__main-item-checkbox' type='radio' name="common{{ poll.title|slice:" :5" }}"
+                                            tabindex="{{ forloop.counter }}" />
+                                    </label>
+                                </li>
+                                {% endfor %}
+                            </div>
+                        </ul>
+                        <span class='poll__main-poll-date'>{{ poll.date }}</span>
+                        <button class="poll__main-btn-submit" type="submit">Проголосовать</button>
+                    </div>
+                </form>
+            {% endfor %}
+        {% else %}
+            <h1 class='poll__main-title'>На данный момент нет голосований</h1>
+        {% endif %}
     </div>
 {% endblock %}
