@@ -1,0 +1,19 @@
+{% extends 'poll/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Новое голосование
+{% endblock %}
+
+{% block content %}
+    <div class='poll__main-inner'>
+        <h1 class='poll__main-title'>Создание нового голосования</h1>
+        <form class='poll__main-form js-form-create' method="post" name="createForm">
+            {% csrf_token %}
+            {{form.title}}
+            {{form.variants}}
+            <button class="poll__main-btn-submit poll__create-btn js-form-create-submit" type="submit" name="submitBtn">Создать</button>
+        </form>
+        <span class="poll__create-error">{{error}}</span>
+    </div>
+{% endblock %}
