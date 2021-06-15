@@ -1,0 +1,20 @@
+{% extends 'poll/layout.html' %}
+
+{% block title %}
+    Все голосования
+{% endblock %}
+
+{% block content %}
+    <div class='poll__main-inner'>
+        {% for poll in polls %}
+            <div class="poll__main-list-wrapper">
+                <h1 class='poll__main-title'>{{ poll.title }}</h1>
+                <span class='poll__main-poll-date'>{{ poll.date }}</span>
+                <div class="poll__main-btn-wrapper">
+                    <a href="{% url 'poll_result' poll.id %}" class="poll__main-btn-result">Результаты</a>
+                    <a href="{% url 'selected_poll' poll.id %}" class="poll__main-btn-submit">Голосовать</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

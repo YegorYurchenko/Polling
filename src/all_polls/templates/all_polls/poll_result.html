@@ -1,0 +1,36 @@
+{% extends 'poll/layout.html' %}
+{% load poll_split %}
+{% load static %}
+
+{% block title %}
+    Результаты голосования
+{% endblock %}
+
+{% block content %}
+    <div class='poll__main-inner'>
+        <a href="/all_polls" class='poll__main-poll-return'>
+            <img class='poll__main-poll-return-svg' src="{% static 'poll/img/back-arrow.svg' %}">
+            <span class='poll__main-poll-return-text'>Назад</span>
+        </a>
+        <div class="poll__main-list-wrapper">
+            <h1 class='poll__main-title'>{{ poll.title }}</h1>
+            <div class="poll__main-list-wrapper">
+                <ul class='poll__main-list'>
+                    <div class="poll__main-list-inner flex-col">
+                        {% for variant in poll.variants|split %}
+                            {% for answer in poll.answers|split_space_for_result %}
+                                {% if forloop.parentloop.counter == forloop.counter %}
+                                    <li class='poll__main-item'>
+                                        <div class="poll__main-item-radio poll__main-item-radio_not-active">
+                                            <span class='poll__main-item-text'>{{ variant }} : <span class="poll__main-item-text_highlight">{{ answer }}</span></span>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

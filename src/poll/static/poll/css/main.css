@@ -87,6 +87,36 @@ body {
   margin: 100px auto;
   width: 75%;
 }
+.poll__main-poll-return {
+  position: absolute;
+  top: -45px;
+  left: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+.poll__main-poll-return:hover {
+  color: #e95619;
+}
+.poll__main-poll-return .poll__main-poll-return-svg {
+  transform: translateX(0);
+  transition: transform 0.2s ease-in-out;
+}
+.poll__main-poll-return:hover .poll__main-poll-return-svg {
+  transform: translateX(-5px);
+}
+.poll__main-poll-return-svg {
+  width: 25px;
+  margin: 0 5px 0 0;
+}
+.poll__main-poll-return-text {
+  font-size: 18px;
+}
 .poll__main-title {
   display: inline-block;
   font-size: 45px;
@@ -158,6 +188,11 @@ body {
   white-space: normal;
   text-align: center;
 }
+.poll__main-item-text_highlight {
+  padding: 0 10px;
+  background-color: rgba(199, 199, 199, 0.2);
+  border-radius: 20px;
+}
 .poll__main-item-checkbox {
   vertical-align: middle;
   margin: 0;
@@ -186,7 +221,7 @@ body {
 .poll__main-btn-wrapper {
   margin: 0 0 10px;
 }
-.poll__main-btn-submit {
+.poll__main-btn-submit, .poll__main-btn-result {
   margin: 15px 0 0;
   padding: 10px 15px;
   background-color: #e2a815;
@@ -201,4 +236,11 @@ body {
 }
 .poll__main-btn-submit:hover {
   background-color: #be8e14;
+}
+.poll__main-btn-result {
+  margin: 0 10px 0 0;
+  background-color: #e05036;
+}
+.poll__main-btn-result:hover {
+  background-color: #bb3820;
 }
