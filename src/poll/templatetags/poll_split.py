@@ -3,11 +3,11 @@ from django import template
 register = template.Library()
 
 @register.filter(name='split')
-def split(value):
+def split(value: str) -> list[str]:
     return value.split('\n')
 
 @register.filter
-def split_space_for_result(value):
+def split_space_for_result(value: str) -> list[str]:
     """ Преобразование количества голосов в проценты """
     value_list = list(map(int, value.split(' ')))
     sum_value_list = sum(value_list)

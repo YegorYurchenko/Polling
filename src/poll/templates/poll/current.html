@@ -7,16 +7,20 @@
 
 {% block content %}
     <div class='poll__main-inner'>
-        {% if type %}
-            {% for poll in polls %}
+        {% if polls %}
+            {% if type %}
+                {% for poll in polls %}
+                    {% include 'poll/poll.html' %}
+                {% endfor %}
+            {% else %}
+                <a href="/all_polls" class='poll__main-poll-return'>
+                    <img class='poll__main-poll-return-svg' src="{% static 'poll/img/back-arrow.svg' %}">
+                    <span class='poll__main-poll-return-text'>Назад</span>
+                </a>
                 {% include 'poll/poll.html' %}
-            {% endfor %}
+            {% endif %}
         {% else %}
-            <a href="/all_polls" class='poll__main-poll-return'>
-                <img class='poll__main-poll-return-svg' src="{% static 'poll/img/back-arrow.svg' %}">
-                <span class='poll__main-poll-return-text'>Назад</span>
-            </a>
-            {% include 'poll/poll.html' %}
+            <h1 class='poll__main-title'>На данный момент нет голосований</h1>
         {% endif %}
     </div>
 {% endblock %}
