@@ -28,7 +28,7 @@
                             <img src="{% static 'poll/img/list.svg' %}" class="poll__menu-svg" alt="All icon">
                             <li class="poll__menu-item">Все голосования</li>
                         </a>
-                        <a href="/" class="poll__menu-item-link poll__menu-item-link_button">
+                        <a href="{% url 'create_poll' %}" class="poll__menu-item-link poll__menu-item-link_button">
                             <img src="{% static 'poll/img/create.svg' %}" class="poll__menu-svg poll__menu-svg_down" alt="New icon">
                             <li class="poll__menu-item">Создать новое</li>
                         </a>
@@ -40,5 +40,6 @@
                 {% endblock %}
             </main>
         </div>
+        <script src="{% static 'create_poll/js/create-form.js' %}"></script>
     </body>
 </html>

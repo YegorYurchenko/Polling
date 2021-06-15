@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'poll',
     'all_polls',
+    'create_poll',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
