@@ -24,7 +24,7 @@
                             <img src="{% static 'poll/img/current.svg' %}" class="poll__menu-svg" alt="Current icon">
                             <li class="poll__menu-item">Текущее голосование</li>
                         </a>
-                        <a href="/" class="poll__menu-item-link {% if type == 'all' %} poll__menu-item-link_active {% endif %}">
+                        <a href="{% url 'all_polls' %}" class="poll__menu-item-link {% if type == 'all' %} poll__menu-item-link_active {% endif %}">
                             <img src="{% static 'poll/img/list.svg' %}" class="poll__menu-svg" alt="All icon">
                             <li class="poll__menu-item">Все голосования</li>
                         </a>
