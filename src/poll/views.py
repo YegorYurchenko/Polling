@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Polls
 from create_poll.forms import PollsForm
 
-def current(request):
+def poll(request):
     if request.method == 'POST':
         form = PollsForm(request.POST)
         poll_id = request.POST.get("poll_id")

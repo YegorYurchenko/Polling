@@ -9,7 +9,7 @@ class PollsForm(ModelForm):
         widgets = {
             'title': TextInput(attrs={
                 'class': 'poll__create-title js-form-create-title',
-                'placeholder': 'Название статьи',
+                'placeholder': 'Название статьи (не менее 6 символов)',
                 'autocomplete' : 'off',
                 'required': True
             }),

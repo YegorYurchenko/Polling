@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class='poll__main-inner'>
-        {% if polls %}
+        {% if polls or poll %}
             {% if type %}
                 {% for poll in polls %}
                     {% include 'poll/poll.html' %}
