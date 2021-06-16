@@ -1,6 +1,7 @@
 from django.test import TestCase
 from poll.templatetags.poll_split import split, split_space_for_result
 from poll.views import add_answer_increase
+from create_poll.views import delete_empty_variants
 
 class PollsFormTest(TestCase):
     """ Тестирование вспомогательных функций """
@@ -13,3 +14,6 @@ class PollsFormTest(TestCase):
 
     def test_add_answer_increase_valid(self):
         self.assertEqual(add_answer_increase('2 5 1 3 9', 2), '2 5 2 3 9')
+    
+    def test_delete_empty_variants(self):
+        self.assertEqual(delete_empty_variants('МГУ\nВШЭ\n\n\nМГТУ\n\n МФТИ\nМГИМО\n\n'), 'МГУ\nВШЭ\nМГТУ\nМФТИ\nМГИМО')
