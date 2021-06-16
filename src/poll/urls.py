@@ -1,3 +1,5 @@
+""" Poll URL configuration """
+
 from django.urls import path
 from . import views
 

@@ -1,7 +1,10 @@
-from poll.models import Polls
+""" Forms """
+
 from django.forms import ModelForm, TextInput, Textarea
+from poll.models import Polls
 
 class PollsForm(ModelForm):
+    """ Форма PollsForm """
     class Meta:
         model = Polls
         fields = ['title', 'variants']

@@ -1,8 +1,11 @@
+""" Create_poll views """
+
 from django.shortcuts import render, redirect
-from poll.models import Polls
 from .forms import PollsForm
 
-def createPoll(request):
+def createPoll(request): # Не create_poll из-за условия задачи
+    """ Создание нового голосования """
+
     error = ''
     if request.method == 'POST':
         form = PollsForm(request.POST)
@@ -11,11 +14,11 @@ def createPoll(request):
             poll.variants = delete_empty_variants(poll.variants)
 
             amount_of_variants = len(poll.variants.split('\n'))
-            poll.answers = ' '.join(['0' for i in range(amount_of_variants)]) # Пока что никто не проголосовал
+            poll.answers = ' '.join(['0' for i in range(amount_of_variants)]) # никто не голосовал
             poll.save()
             return redirect('current')
-        else:
-            error = 'Вы неправильно заполнили форму'
+
+        error = 'Вы неправильно заполнили форму'
 
     form = PollsForm()
     data = {
@@ -26,7 +29,8 @@ def createPoll(request):
     return render(request, 'create_poll/create_poll.html', data)
 
 def delete_empty_variants(variants: str) -> str:
-    new_variants = variants.split('\n');
+    """ Функция, удаляющая пустые варианты голосования """
+    new_variants = variants.split('\n')
 
     result_variants = []
     for variant in new_variants:
@@ -34,4 +38,3 @@ def delete_empty_variants(variants: str) -> str:
             result_variants.append(variant.strip())
 
     return '\n'.join(result_variants)
-
