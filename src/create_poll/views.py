@@ -25,7 +25,7 @@ def createPoll(request):
 
     return render(request, 'create_poll/create_poll.html', data)
 
-def delete_empty_variants(variants):
+def delete_empty_variants(variants: str) -> str:
     new_variants = variants.split('\n');
 
     result_variants = []
