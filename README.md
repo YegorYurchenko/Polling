@@ -4,6 +4,8 @@
 
 Задание - https://github.com/avito-tech/mi-trainee-task-2021
 
+Вторая реализация с использованием Flask и Swagger (об этом написано в `Дополнительные ответы/Readme.txt`) - https://github.com/YegorYurchenko/Polling_JSON
+
 При работе использовался [Python](https://www.python.org/) версии [3.9.5](https://www.python.org/downloads/release/python-395/) и [Django](https://www.djangoproject.com/) версии [3.2.4](https://docs.djangoproject.com/en/3.2/releases/3.2.4/).
 
 Frontend написан с помощью HTML, CSS и JavaScript.
