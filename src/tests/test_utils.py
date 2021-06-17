@@ -3,7 +3,7 @@
 from django.test import TestCase
 from poll.templatetags.poll_split import split, split_space_for_result
 from poll.views import add_answer_increase
-from create_poll.views import delete_empty_variants
+from create_poll.views import delete_empty_variants, get_initial_answers
 
 class UtilsTest(TestCase):
     """ Тестирование вспомогательных функций (utils) """
@@ -26,3 +26,8 @@ class UtilsTest(TestCase):
         """ Тестирование функции, удаляющей пустые варианты голосования """
         self.assertEqual(delete_empty_variants('МГУ\nВШЭ\n\n\nМГТУ\n\n МФТИ\nМГИМО\n\n'),
                         'МГУ\nВШЭ\nМГТУ\nМФТИ\nМГИМО')
+
+    def test_get_initial_answers(self):
+        """ Тестирование функции, генерирующей начальное состояние ответов голосования """
+        self.assertEqual(get_initial_answers('МГУ\nВШЭ\nМГТУ\nМФТИ\nМГИМО'),
+                        '0 0 0 0 0')

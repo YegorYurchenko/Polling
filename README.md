@@ -56,5 +56,5 @@ Frontend написан с помощью HTML, CSS и JavaScript.
     * `db.sqlite3`
     * `manage.py`
 * `.gitignore`
-* `README.md` - 
+* `README.md`
 * `requirements.txt` - необходимые зависимости

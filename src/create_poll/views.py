@@ -12,9 +12,7 @@ def createPoll(request): # Не create_poll из-за условия задач�
         if form.is_valid():
             poll = form.save(commit=False)
             poll.variants = delete_empty_variants(poll.variants)
-
-            amount_of_variants = len(poll.variants.split('\n'))
-            poll.answers = ' '.join(['0' for i in range(amount_of_variants)]) # никто не голосовал
+            poll.answers = get_initial_answers(poll.variants) # никто не голосовал
             poll.save()
             return redirect('current')
 
@@ -38,3 +36,9 @@ def delete_empty_variants(variants: str) -> str:
             result_variants.append(variant.strip())
 
     return '\n'.join(result_variants)
+
+def get_initial_answers(variants: str) -> str:
+    """ Функция, генерирующая начальное состояние ответов голосования """
+    amount_of_variants = len(variants.split('\n'))
+
+    return ' '.join(['0' for i in range(amount_of_variants)])

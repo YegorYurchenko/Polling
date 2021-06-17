@@ -1,9 +1,12 @@
+""" Utils """
+
 from django import template
 
 register = template.Library()
 
 @register.filter(name='split')
 def split(value: str) -> list[str]:
+    """ Разделение строки вариантов на список """
     return value.split('\n')
 
 @register.filter
@@ -14,6 +17,6 @@ def split_space_for_result(value: str) -> list[str]:
 
     if sum_value_list > 0:
         value_list = list(map(lambda x: round((x / sum_value_list * 100), 1), value_list))
-        
+
     value_list = list(map(lambda x: str(x) + '%', value_list))
     return value_list
